@@ -31,4 +31,10 @@ public class MyDateTest {
 		MyDate date = new MyDate(13, 12, 2018);
 		assertEquals(13, date.getDay());
 	}
+	
+	@Test
+	public void testValiLeapYearDate() throws InvalidMonthException, InvalidDayException {
+		MyDate date = new MyDate(29, 2, 2000);
+		assertEquals(29, date.getDay());
+	}
 }

@@ -8,14 +8,14 @@ public class MyDate {
 	private int day;
 	private int month;
 	private int year;
-	private static final int array[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	private static int array[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 	public MyDate() {
 		super();
 	}
 
 	public MyDate(int day, int month, int year) throws InvalidMonthException, InvalidDayException {
-		super();
+		checkLeapYear(year);
 		setMonth(month);
 		setDay(day);
 		System.out.println("Valid Date");
@@ -58,6 +58,24 @@ public class MyDate {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public void checkLeapYear(int year) {
+
+		boolean flag = false;
+		
+		if (year % 400 == 0) {
+			flag = true;
+		} else if (year % 100 == 0) {
+			flag = false;
+		} else if (year % 4 == 0) {
+			flag = true;
+		} else {
+			flag = false;
+		}
+		if(flag) {
+			array[1]=29;
+		}
 	}
 
 }
